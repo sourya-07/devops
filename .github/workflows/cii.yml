@@ -1,0 +1,81 @@
+name: Standard CI
+
+on: push
+
+jobs:
+    lint-test:
+        name: Lint 
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout latest code
+              uses: actions/checkout@v4
+            
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run lint
+              run: npm run lint
+
+
+
+    build-test:
+        name: Build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout latest code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run build
+              run: npm run build
+        
+    test-test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout latest code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run test
+              run: npm run test
+        
+    deploy-test:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout latest code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run deploy
+              run: npm run deploy
